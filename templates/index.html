@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
     <style type="text/tailwindcss">
         @layer utilities {
 
@@ -13,6 +25,7 @@
                     }
         }
     </style>
+    <link rel="stylesheet" href="/static/css/style.css">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +41,7 @@
 
     <!-- container -->
     <div class="flex flex-col  gap-16 items-center container   w-10/12 h-5/6  bg-white bg-opacity-20  dark:bg-black dark:bg-opacity-20 bg-blur rounded-3xl border-2 dark:border-black  dark:border-opacity-10  overflow-auto"
-        style="backdrop-filter: blur(100px);">
+    style="backdrop-filter: blur(20px);">
 
 
 
@@ -68,7 +81,7 @@
                 <input id="file-upload" type="file" onchange="CopyMe(this, 'txtFileName');" />
 
             </div>
-            <button class="px-10 py-2 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 dark:hover:bg-slate-700 cursor-pointer bg-blur rounded-full border-2 dark:border-black  dark:border-opacity-10 text-center text-3xl text-[#2A6D5E] dark:text-[#69FFDB] hover:bg-slate-100" type="submit" value="Add Songs">Upload</button>
+            <button class="px-10 py-2 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 dark:hover:bg-slate-700 cursor-pointer bg-blur rounded-full border-2 dark:border-black  dark:border-opacity-10 text-center text-3xl text-[#2A6D5E] dark:text-[#69FFDB] hover:bg-slate-100" type="submit" value="Upload">Upload</button>
 
         </form>
 
@@ -85,7 +98,72 @@
 
     </div>
     </div>
-
+    <!-- Dost Background ================================================= -->
+    <section>
+        <div class="bg ">
+            <div class="dotWrapper dotWrapper-1">
+                <div class="dot dot-1"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-2">
+                <div class="dot dot-2"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-3">
+                <div class="dot dot-3"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-4">
+                <div class="dot dot-4"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-5">
+                <div class="dot dot-5"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-6">
+                <div class="dot dot-6"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-7">
+                <div class="dot dot-7"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-8">
+                <div class="dot dot-8"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-9">
+                <div class="dot dot-9"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-10">
+                <div class="dot dot-10"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-11">
+                <div class="dot dot-11"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-12">
+                <div class="dot dot-12"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-13">
+                <div class="dot dot-13"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-14">
+                <div class="dot dot-14"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-15">
+                <div class="dot dot-15"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-16">
+                <div class="dot dot-16"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-17">
+                <div class="dot dot-17"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-18">
+                <div class="dot dot-18"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-19">
+                <div class="dot dot-19"></div>
+            </div>
+            <div class="dotWrapper dotWrapper-20">
+                <div class="dot dot-20"></div>
+            </div>
+            
+        </div>
+    </section>
     <script src="/static/js/script.js"></script>
 </body>
 
