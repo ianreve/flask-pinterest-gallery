@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+
+            input[type="file"] {
+                display: none;
+                    }
+        }
+    </style>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Photo Gallery</title>
+</head>
+
+<body
+    class="flex items-center justify-center text-[#09192E] h-screen bg-gradient-to-tl from-[#90C0DB] to-[#223653]  dark:from-[#223553] dark:to-[#0F223F] dark:text-slate-50 scroll-smooth">
+
+    <!-- container -->
+    <div class="flex flex-col  gap-16 items-center container   w-10/12 h-5/6  bg-white bg-opacity-20  dark:bg-black dark:bg-opacity-20 bg-blur rounded-3xl border-2 dark:border-black  dark:border-opacity-10  overflow-auto"
+        style="backdrop-filter: blur(100px);">
+
+
+
+        <div class="flex flex-row-reverse pt-4 pr-4 w-full mb-10   ">
+            <div
+                class="w-10 h-10 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-20 bg-blur rounded-3xl border-2 dark:border-black  dark:border-opacity-10 ">
+            </div>
+        </div>
+
+
+        <h1 class="text-5xl">Upload A Photo</h1>
+        <div class=" w-5/6 flex flex-col justify-center">
+
+      
+        <form class="flex flex-col gap-10 justify-content-center items-center  w-full mx-auto " action="" method="post">
+            <input
+                class="h-10  bg-white bg-opacity-60  dark:bg-black dark:bg-opacity-60 bg-blur rounded-lg border-2 dark:border-black  dark:border-opacity-10 placeholder:text-[#18293C] placeholder:text-opacity-70 dark:placeholder:text-white dark:placeholder:text-opacity-70 text-center "
+                type="text" id="title" name="Title" placeholder=" Caption" value="{{request.form[Title]}}">
+
+
+            <div class=" flex flex-row flex-wrap w-11/12 mx-auto h-14 justify-center">
+
+                <input
+                    class="h-auto w-4/6 bg-[#A5B9C8] bg-opacity-60 border-[#A5B9C8] dark:bg-black dark:bg-opacity-25 bg-blur rounded-l-lg border-2 dark:border-black  dark:border-opacity-10 text-center "
+                    id="txtFileName" type="text" readonly="readonly" />
+
+
+                <!-- <input class="custom-file-upload" type="file" onchange="CopyMe(this, 'txtFileName');" /> -->
+                <label for="file-upload" class=" bg-white bg-opacity-60 dark:bg-black dark:bg-opacity-70 bg-blur rounded-r-lg  dark:border-black  dark:border-opacity-10 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer ">
+                    <div
+                    class="flex  items-center px-3 w-full h-14 rounded-t-3xl space-x-1 ">
+                    <div class="bg-[#8792AE] rounded-full w-3 h-3 align-middle"></div>
+                    <div class="bg-[#8792AE] rounded-full w-3 h-3 align-middle"></div>
+                    <div class="bg-[#8792AE] rounded-full w-3 h-3 align-middle"></div>
+                </div>
+                </label>
+                <input id="file-upload" type="file" onchange="CopyMe(this, 'txtFileName');" />
+
+            </div>
+            <button class="px-10 py-2 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50 dark:hover:bg-slate-700 cursor-pointer bg-blur rounded-full border-2 dark:border-black  dark:border-opacity-10 text-center text-3xl text-[#2A6D5E] dark:text-[#69FFDB] hover:bg-slate-100" type="submit" value="Add Songs">Upload</button>
+
+        </form>
+
+        <!-- <a id="btn-CV" href="/document/IanReveCacao_CV.pdf" target="_blank"
+            class=" content-center items-center w-fit px-6 py-2.5 bg-[#286D5D] text-white dark:bg-[#286D5D]  font-medium text-md leading-tight  rounded shadow-md dark:hover:bg-emerald-900  hover:shadow-lg focus:bg-[#4EBA7C] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#64FFDA] active:shadow-lg transition duration-150 ease-in-out hover:delay-75">View
+            my CV</a> -->
+        
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
