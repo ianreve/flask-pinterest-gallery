@@ -3,26 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {},
-          },
-        },
-      };
-    </script>
-    <style type="text/tailwindcss">
-      @layer utilities {
-        input[type="file"] {
-          display: none;
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/styles.css')}}"
+    />
 
+    <!-- live preview  start-->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <!-- live preview end -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,83 +21,90 @@
   </head>
 
   <body
-    class="flex h-screen items-center justify-center scroll-smooth bg-gradient-to-tl from-[#90C0DB] to-[#223653] text-[#09192E] dark:from-[#223553] dark:to-[#0F223F] dark:text-slate-50"
+    class="flex h-screen scroll-smooth bg-gradient-to-tl from-[#90C0DB] to-[#223653] align-middle text-[#09192E] dark:from-[#223553] dark:to-[#0F223F] dark:text-slate-50"
   >
     <!-- container -->
-    <div
-      class="container flex h-5/6 w-10/12 flex-col items-center gap-16 overflow-auto rounded-3xl border-2 bg-white bg-opacity-20 backdrop-blur dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
-    >
-      <div class="mb-10 flex w-full flex-row-reverse pt-4 pr-4">
-        <div
-          class="bg-blur h-10 w-10 rounded-3xl border-2 bg-white bg-opacity-50 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
-        ></div>
-      </div>
-
-      <h1 class="text-5xl">Upload A Photo</h1>
-      <div class="flex w-5/6 flex-col justify-center">
-        <form
-          class="justify-content-center mx-auto flex w-full flex-col items-center gap-10"
-          action=""
-          method="POST"
-        >
-          <input
-            class="bg-blur h-10 rounded-lg border-2 bg-white bg-opacity-60 text-center placeholder:text-[#18293C] placeholder:text-opacity-70 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-60 dark:placeholder:text-white dark:placeholder:text-opacity-70"
-            type="text"
-            id="title"
-            name="Title"
-            placeholder=" Caption"
-            value="{{request.form[Title]}}"
-          />
-
+    <div class="mx-auto my-auto flex h-5/6 w-full items-center justify-center">
+      <div
+        class="container flex h-5/6 w-10/12 flex-col content-center items-center gap-16 overflow-auto rounded-3xl border-2 bg-white bg-opacity-20 align-middle backdrop-blur-xl dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
+      >
+        <!-- Menu Burger Button -->
+        <div class="mb-10 flex w-full flex-row-reverse pt-4 pr-4">
           <div
-            class="mx-auto flex h-14 w-11/12 flex-row flex-wrap justify-center"
-          >
-            <input
-              class="bg-blur h-auto w-4/6 rounded-l-lg border-2 border-[#A5B9C8] bg-[#A5B9C8] bg-opacity-60 text-center dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-25"
-              id="txtFileName"
-              type="text"
-              readonly="readonly"
-            />
+            class="bg-blur h-10 w-10 rounded-3xl border-2 bg-white bg-opacity-50 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
+          ></div>
+        </div>
+        <h1 class="text-5xl">Upload A Photo</h1>
 
-            <!-- <input class="custom-file-upload" type="file" onchange="CopyMe(this, 'txtFileName');" /> -->
-            <label
-              for="file-upload"
-              class="bg-blur cursor-pointer rounded-r-lg bg-white bg-opacity-60 hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-70 dark:hover:bg-slate-700"
+        <!-- Upload Form -->
+        <div class="flex h-full w-full flex-col place-content-start pt-24">
+          <div class="mx-auto flex w-5/6 flex-col justify-center">
+            <form
+              class="justify-content-center flex w-full flex-col items-center gap-10"
+              action=""
+              method="POST"
             >
-              <div
-                class="flex h-14 w-full items-center space-x-1 rounded-t-3xl px-3"
-              >
-                <div
-                  class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
-                ></div>
-                <div
-                  class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
-                ></div>
-                <div
-                  class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
-                ></div>
-              </div>
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              onchange="CopyMe(this, 'txtFileName');"
-            />
-          </div>
-          <button
-            class="bg-blur cursor-pointer rounded-full border-2 bg-white bg-opacity-50 px-10 py-2 text-center text-3xl text-[#2A6D5E] hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-50 dark:text-[#69FFDB] dark:hover:bg-slate-700"
-            type="submit"
-            value="Upload"
-          >
-            Upload
-          </button>
-        </form>
+              <input
+                class="bg-blur h-10 rounded-lg border-2 bg-white bg-opacity-60 text-center placeholder:text-[#18293C] placeholder:text-opacity-70 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-60 dark:placeholder:text-white dark:placeholder:text-opacity-70"
+                type="text"
+                id="title"
+                name="Title"
+                placeholder=" Caption"
+                value="{{request.form[Title]}}"
+              />
 
-        <!-- <a id="btn-CV" href="/document/IanReveCacao_CV.pdf" target="_blank"
+              <div
+                class="mx-auto flex h-14 w-11/12 flex-row flex-wrap justify-center"
+              >
+                <input
+                  class="bg-blur h-auto w-4/6 rounded-l-lg border-2 border-[#A5B9C8] bg-[#A5B9C8] bg-opacity-60 text-center dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-25"
+                  id="txtFileName"
+                  type="text"
+                  readonly="readonly"
+                />
+
+                <!-- <input class="custom-file-upload" type="file" onchange="CopyMe(this, 'txtFileName');" /> -->
+                <label
+                  for="file-upload"
+                  class="bg-blur cursor-pointer rounded-r-lg bg-white bg-opacity-60 hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-70 dark:hover:bg-slate-700"
+                >
+                  <div
+                    class="flex h-14 w-full items-center space-x-1 rounded-t-3xl px-3"
+                  >
+                    <div
+                      class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
+                    ></div>
+                    <div
+                      class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
+                    ></div>
+                    <div
+                      class="h-3 w-3 rounded-full bg-[#8792AE] align-middle"
+                    ></div>
+                  </div>
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  onchange="CopyMe(this, 'txtFileName');"
+                />
+              </div>
+              <button
+                class="bg-blur cursor-pointer rounded-full border-2 bg-white bg-opacity-50 px-10 py-2 text-center text-3xl text-[#2A6D5E] hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-50 dark:text-[#69FFDB] dark:hover:bg-slate-700"
+                type="submit"
+                value="Upload"
+              >
+                Upload
+              </button>
+            </form>
+          </div>
+
+          <!-- <a id="btn-CV" href="/document/IanReveCacao_CV.pdf" target="_blank"
             class=" content-center items-center w-fit px-6 py-2.5 bg-[#286D5D] text-white dark:bg-[#286D5D]  font-medium text-md leading-tight  rounded shadow-md dark:hover:bg-emerald-900  hover:shadow-lg focus:bg-[#4EBA7C] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#64FFDA] active:shadow-lg transition duration-150 ease-in-out hover:delay-75">View
             my CV</a> -->
+        </div>
       </div>
     </div>
+
     <!-- Dost Background ================================================= -->
     <section>
       <div class="bg">

@@ -1,0 +1,24 @@
+{
+  "name": "flask-pinterest-gallery",
+  "version": "1.0.0",
+  "description": "Python Project for JUST IT Software Development Bootcamp",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i tailwind.css -o ./static/css/styles.css --watch",
+    "prod": "npx tailwindcss -i tailwind.css -o ./static/css/styles.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianreve/flask-pinterest-gallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianreve/flask-pinterest-gallery/issues"
+  },
+  "homepage": "https://github.com/ianreve/flask-pinterest-gallery#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.18"
+  }
+}
