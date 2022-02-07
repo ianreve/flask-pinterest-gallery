@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="file"] {
-  display: none;
+@layer components {
+  body {
+    @apply h-screen scroll-smooth bg-gradient-to-tl from-[#90C0DB] to-[#223653] align-middle text-[#09192E] dark:from-[#223553] dark:to-[#0F223F] dark:text-slate-50;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
 }
+
 /* ==================BG DOts=============================================== */
 /* .bg {
   position: absolute;
@@ -273,8 +280,9 @@ input[type="file"] {
 ::-webkit-scrollbar {
   width: 5px;
 }
-.bar::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: transparent;
+  padding-top: 1rem;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #286d5d;

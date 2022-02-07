@@ -32,5 +32,5 @@ localStorage.removeItem("theme");
 const view = document.getElementById("view");
 
 view.addEventListener("click", () => {
-  view.classList.add("block");
+  view.classList.add("hidden");
 });
