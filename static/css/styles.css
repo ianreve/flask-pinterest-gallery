@@ -534,16 +534,16 @@ input[type="file"] {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
+.relative {
+  position: relative;
 }
 
 .top-0 {
   top: 0px;
 }
 
-.top-40 {
-  top: 10rem;
+.m-auto {
+  margin: auto;
 }
 
 .mx-auto {
@@ -551,17 +551,12 @@ input[type="file"] {
   margin-right: auto;
 }
 
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .block {
@@ -572,16 +567,16 @@ input[type="file"] {
   display: flex;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-5\/6 {
   height: 83.333333%;
 }
 
 .h-10 {
   height: 2.5rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .h-14 {
@@ -592,12 +587,12 @@ input[type="file"] {
   height: 0.75rem;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-10\/12 {
   width: 83.333333%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-10 {
@@ -661,10 +656,6 @@ input[type="file"] {
 
 .overflow-auto {
   overflow: auto;
-}
-
-.scroll-smooth {
-  scroll-behavior: smooth;
 }
 
 .rounded-3xl {
@@ -734,8 +725,8 @@ input[type="file"] {
   --tw-bg-opacity: 0.6;
 }
 
-.p-10 {
-  padding: 2.5rem;
+.p-16 {
+  padding: 4rem;
 }
 
 .px-3 {
@@ -1085,17 +1076,40 @@ input[type="file"] {
   Custom Scrollbar
   -------------------------------- */
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
   padding-top: 1rem;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #286d5d;
+}
+ */
+
+/* total width */
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 4px transparent;
+  margin: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 14px 14px #286d5d;
+  border: solid 4px transparent;
+  border-radius: 14px;
+}
+
+/* set button(top and bottom of the scrollbar) */
+
+::-webkit-scrollbar-button {
+  display: none;
 }
 
 .placeholder\:text-\[\#18293C\]::-moz-placeholder {

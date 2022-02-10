@@ -1,51 +1,51 @@
-from flask import Flask, request, Response, render_template
-from werkzeug.utils import secure_filename
+# from flask import Flask, request, Response, render_template
+# from werkzeug.utils import secure_filename
 
-from db import db_init, db
-from models import Img
+# from db import db_init, db
+# from models import Img
 
-app = Flask(__name__)
-# SQLAlchemy config. Read more: https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db_init(app)
+# app = Flask(__name__)
+# # SQLAlchemy config. Read more: https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db_init(app)
 
-app = Flask(__name__)
-
-
-@app.route("/")
-@app.route("/index")
-def index():
-	return render_template("index.html")
+# app = Flask(__name__)
 
 
-@app.route('/gallery')
-def gallery():
-    return render_template('gallery.html', title = 'Gallery')
+# @app.route("/")
+# @app.route("/index")
+# def index():
+# 	return render_template("index.html")
 
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    pic = request.files['pic']
-    if not pic:
-        return 'No pic uploaded!', 400
-
-    filename = secure_filename(pic.filename)
-    mimetype = pic.mimetype
-    if not filename or not mimetype:
-        return 'Bad upload!', 400
-
-    img = Img(img=pic.read(), name=filename, mimetype=mimetype)
-    db.session.add(img)
-    db.session.commit()
-
-    return 'Img Uploaded!', 200
+# @app.route('/gallery')
+# def gallery():
+#     return render_template('gallery.html', title = 'Gallery')
 
 
+# @app.route('/upload', methods=['POST'])
+# def upload():
+#     pic = request.files['pic']
+#     if not pic:
+#         return 'No pic uploaded!', 400
+
+#     filename = secure_filename(pic.filename)
+#     mimetype = pic.mimetype
+#     if not filename or not mimetype:
+#         return 'Bad upload!', 400
+
+#     img = Img(img=pic.read(), name=filename, mimetype=mimetype)
+#     db.session.add(img)
+#     db.session.commit()
+
+#     return 'Img Uploaded!', 200
 
 
-if __name__ == '__main__':
-	app.run(debug=True)
+
+
+# if __name__ == '__main__':
+# 	app.run(debug=True)
 
 
 # from flask import Flask, request, Response
@@ -93,4 +93,4 @@ if __name__ == '__main__':
 #     return Response(img.img, mimetype=img.mimetype)
 
 # if __name__ == '__main__':
-# 	app.run(debug=True)
+	app.run(debug=True)
