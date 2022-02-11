@@ -1,21 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-
 <form
   class="flex w-full flex-col items-center justify-center gap-10"
-  action="http://localhost:5000/upload"
-  enctype="multipart/form-data"
   method="POST"
+  enctype="multipart/form-data"
 >
   <h1 class="text-center text-4xl">Upload A Photo</h1>
-  <input
-    class="bg-blur h-10 rounded-lg border-2 bg-white bg-opacity-60 text-center placeholder:text-[#18293C] placeholder:text-opacity-70 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-60 dark:placeholder:text-white dark:placeholder:text-opacity-70"
-    type="text"
-    id="title"
-    name="Title"
-    placeholder=" Caption"
-    value="{{request.form[Title]}}"
-  />
-
   <div class="mx-auto flex w-11/12 flex-row flex-wrap justify-center">
     <input
       class="bg-blur w-4/6 rounded-l-lg border-2 border-[#A5B9C8] bg-[#A5B9C8] bg-opacity-60 text-center dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-25"
@@ -39,29 +28,32 @@
     <input
       id="file-upload"
       type="file"
-      name="pic"
+      name="img"
       onchange="CopyMe(this, 'txtFileName');"
     />
   </div>
-  <button
-    class="bg-blur block cursor-pointer rounded-full border-2 bg-white bg-opacity-50 px-10 py-2 text-center text-3xl text-[#2A6D5E] hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-50 dark:text-[#69FFDB] dark:hover:bg-slate-700"
-    type="submit"
-    value="Upload"
-  >
-    Upload
-  </button>
-  <div class="pt-8 text-base font-semibold leading-7">
-    <p>
-      <a
-        id="view"
-        onclick=""
-        href="{{url_for('gallery')}}"
-        class="text-sky-500 hover:text-sky-600"
-        >View Gallery &rarr;</a
-      >
-      <!-- <a id="view" onclick="" href="{{url_for('gallery')}}">View</a> -->
-    </p>
+  <div>
+    <input
+      class="bg-blur h-10 rounded-lg border-2 bg-white bg-opacity-60 text-center placeholder:text-[#18293C] placeholder:text-opacity-70 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-60 dark:placeholder:text-white dark:placeholder:text-opacity-70"
+      type="text"
+      id="title"
+      name="text"
+      placeholder=" Caption"
+      value="{{request.form[Title]}}"
+    />
+  </div>
+  <div>
+    <button
+      class="bg-blur block cursor-pointer rounded-full border-2 bg-white bg-opacity-50 px-10 py-2 text-center text-3xl text-[#2A6D5E] hover:bg-slate-100 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-50 dark:text-[#69FFDB] dark:hover:bg-slate-700"
+    >
+      Submit
+    </button>
   </div>
 </form>
 
-{% endblock content %}
+{% endblock content %} {% block gallery %}
+<div class="m-auto mt-10 columns-3 p-16">
+  {% for post in posts %} {% if post.mimetype %} <img class="mb-4 rounded-2xl
+  shadow w-full h-64 object-cover" src=/img/{{post.id}}> {% endif %} {% endfor
+  %} {% endblock gallery %}
+</div>

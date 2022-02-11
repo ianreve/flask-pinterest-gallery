@@ -1,96 +1,43 @@
-from flask import Flask, request, Response, render_template
+from flask import Flask, render_template, request, redirect, Response
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 from werkzeug.utils import secure_filename
 
-from db import db_init, db
-from models import Img
-
 app = Flask(__name__)
-# SQLAlchemy config. Read more: https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db_init(app)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
+db = SQLAlchemy(app)
 
-app = Flask(__name__)
+class Posts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.LargeBinary())
+    filename = db.Column(db.Text)
+    mimetype = db.Column(db.Text)
+    text = db.Column(db.Text)
+    date = db.Column(db.DateTime, default=datetime.now)
 
 
-@app.route("/")
-@app.route("/index")
+@app.route("/",methods=["GET","POST"])
 def index():
-	return render_template("index.html")
+    if request.method == "POST":
+        img = request.files["img"]
+        filename = secure_filename(img.filename)
+        mimetype = img.mimetype
+        text = request.form.get("text")
+        if mimetype.startswith("image"):
+            new_post = Posts(image=img.read(),filename=filename,\
+                mimetype=mimetype,text=text)
+        else:
+            new_post = Posts(text=text)
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect("/")
+    posts = Posts.query.order_by(Posts.id.desc())
+    return render_template("index.html", posts=posts[0:20])
 
-
-@app.route('/gallery')
-def gallery():
-    return render_template('gallery.html', title = 'Gallery')
-
-
-@app.route('/upload', methods=['POST'])
-def upload():
-    pic = request.files['pic']
-    if not pic:
-        return 'No pic uploaded!', 400
-
-    filename = secure_filename(pic.filename)
-    mimetype = pic.mimetype
-    if not filename or not mimetype:
-        return 'Bad upload!', 400
-
-    img = Img(img=pic.read(), name=filename, mimetype=mimetype)
-    db.session.add(img)
-    db.session.commit()
-
-    return 'Img Uploaded!', 200
-
-
-
-
-if __name__ == '__main__':
-	app.run(debug=True)
-
-
-# from flask import Flask, request, Response
-# from werkzeug.utils import secure_filename
-
-# from db import db_init, db
-# from models import Img
-
-# app = Flask(__name__)
-# # SQLAlchemy config. Read more: https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db_init(app)
-
-
-# @app.route('/')
-# def hello_world():
-#     return 'Hello, World!'
-
-
-# @app.route('/upload', methods=['POST'])
-# def upload():
-#     pic = request.files['pic']
-#     if not pic:
-#         return 'No pic uploaded!', 400
-
-#     filename = secure_filename(pic.filename)
-#     mimetype = pic.mimetype
-#     if not filename or not mimetype:
-#         return 'Bad upload!', 400
-
-#     img = Img(img=pic.read(), name=filename, mimetype=mimetype)
-#     db.session.add(img)
-#     db.session.commit()
-
-#     return 'Img Uploaded!', 200
-
-
-# @app.route('/<int:id>')
-# def get_img(id):
-#     img = Img.query.filter_by(id=id).first()
-#     if not img:
-#         return 'Img Not Found!', 404
-
-#     return Response(img.img, mimetype=img.mimetype)
-
-# if __name__ == '__main__':
-# 	app.run(debug=True)
+@app.route("/img/<int:id>")
+def image_view(id):
+    post = Posts.query.filter_by(id=id).first()
+    return Response(post.image,mimetype=post.mimetype)
+if __name__ == "__main__":
+    app.run(debug=True,host="0.0.0.0", port="8126")
