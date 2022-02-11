@@ -1,8 +1,7 @@
 #node_mudules for FROM tailwind
-/node_mudules
+/node_modules
 
 
 /__pycache__
 /.vscode/node
-/photo
 /photo
