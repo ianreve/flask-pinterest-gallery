@@ -49,11 +49,23 @@
       Submit
     </button>
   </div>
+
+  <div class="pt-8 text-base font-semibold leading-7">
+    <p>
+      <a
+        id="view"
+        onclick=""
+        href="#Gallery"
+        class="text-sky-500 hover:text-sky-600"
+        >View Gallery &rarr;</a
+      >
+    </p>
+  </div>
 </form>
 
 {% endblock content %} {% block gallery %}
-<div class="m-auto mt-10 columns-3 p-16">
+<div id="Gallery" class="m-auto mt-10 columns-3 p-16">
   {% for post in posts %} {% if post.mimetype %} <img class="mb-4 rounded-2xl
-  shadow w-full h-64 object-cover" src=/img/{{post.id}}> {% endif %} {% endfor
+  w-full h-5/6 object-scale-down " src=/img/{{post.id}}> {% endif %} {% endfor
   %} {% endblock gallery %}
 </div>
