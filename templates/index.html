@@ -72,8 +72,10 @@
     src=/img/{{post.id}}>
 
     <a href="/delete/{{post.id}}" class="delete" type="submit" value="delete"
-      >Delete</a
-    >
+      ><img
+        src="{{url_for('static',filename='images/trash-bin.png')}}"
+        alt="deleteBnt"
+    /></a>
     <a class="update" type="submit">{{post.text}}</a>
   </div>
 
