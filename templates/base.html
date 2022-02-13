@@ -9,7 +9,7 @@
     />
 
     <!-- live preview  start-->
-    <!-- <link rel="stylesheet" href="/static/css/styles.css" /> -->
+    <link rel="stylesheet" href="/static/css/styles.css" />
     <!-- live preview end -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +20,7 @@
     <title>Photo Gallery</title>
   </head>
 
-  <body class="relative">
+  <body class="">
     <!-- container -->
     <div class="flex h-screen flex-col items-center justify-center">
       <div
@@ -42,12 +42,13 @@
 
     <div class="flex h-screen flex-col items-center justify-center">
       <div
+        id="gallery"
         class="flex h-5/6 w-10/12 items-center justify-center overflow-auto rounded-3xl border-2 bg-white bg-opacity-20 align-middle backdrop-blur-xl dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
       >
         <!--Menu Bar Start  -->
         <div class="fixed top-0 flex w-full flex-row-reverse pt-4 pr-4">
           <div
-            class="bg-blur h-10 w-10 rounded-3xl border-2 bg-white bg-opacity-50 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
+            class="scrollbar scrollbar-thumb-red-900 scrollbar-track-red-400 bg-blur h-10 w-10 rounded-3xl border-2 bg-white bg-opacity-50 dark:border-black dark:border-opacity-10 dark:bg-black dark:bg-opacity-20"
           ></div>
         </div>
         <!--Menu Bar End -->
