@@ -39,5 +39,22 @@ def index():
 def image_view(id):
     post = Posts.query.filter_by(id=id).first()
     return Response(post.image,mimetype=post.mimetype)
+
+
+@app.route("/delete/<int:id>")
+def delete(id):
+    postDelete = Posts.query.get_or_404(id)
+
+    try:
+        db.session.delete(postDelete)
+        db.session.commit()
+        return redirect("/#Gallery")
+
+    except:
+        return "There was a problem deleting the image"
+    
+
+
+
 if __name__ == "__main__":
     app.run(debug=True,host="0.0.0.0", port="8126")

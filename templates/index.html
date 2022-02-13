@@ -65,7 +65,17 @@
 
 {% endblock content %} {% block gallery %}
 <div id="Gallery" class="m-auto mt-10 columns-3 p-16">
-  {% for post in posts %} {% if post.mimetype %} <img class="mb-4 rounded-2xl
-  w-full h-5/6 object-scale-down " src=/img/{{post.id}}> {% endif %} {% endfor
-  %} {% endblock gallery %}
+  {% for post in posts %} {% if post.mimetype %}
+
+  <div class="show-image">
+    <img class="mb-4 rounded-2xl w-full h-5/6 object-scale-down "
+    src=/img/{{post.id}}>
+
+    <a href="/delete/{{post.id}}" class="delete" type="submit" value="delete"
+      >Delete</a
+    >
+    <a class="update" type="submit">{{post.text}}</a>
+  </div>
+
+  {% endif %} {% endfor %} {% endblock gallery %}
 </div>

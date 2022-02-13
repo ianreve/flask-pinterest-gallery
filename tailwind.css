@@ -13,7 +13,7 @@
 }
 
 /* ==================BG DOts=============================================== */
-.bg {
+/* .bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -272,7 +272,7 @@
   100% {
     transform: translate(0, 0);
   }
-}
+} */
 
 /* --------------------------------
   Custom Scrollbar
@@ -299,4 +299,36 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: #286d5d;
+}
+
+/* --------------------------------
+  Delete Image Button
+  -------------------------------- */
+div.show-image {
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+div.show-image:hover img {
+  opacity: 0.9;
+}
+div.show-image:hover a {
+  display: block;
+}
+div.show-image a {
+  position: absolute;
+  display: none;
+}
+div.show-image a.update {
+  bottom: 10%;
+  text-align: center;
+  left: 0;
+  width: 100%;
+}
+div.show-image a.delete {
+  top: 5%;
+  left: 79%;
+  padding: 2%;
+  background-color: red;
+  border-radius: 100%;
 }
