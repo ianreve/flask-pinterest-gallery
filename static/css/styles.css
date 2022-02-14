@@ -714,6 +714,20 @@ input[type="file"] {
   background-color: rgb(135 146 174 / var(--tw-bg-opacity));
 }
 
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
+.bg-inherit {
+  background-color: inherit;
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -733,6 +747,14 @@ input[type="file"] {
 
 .p-16 {
   padding: 4rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-36 {
+  padding: 9rem;
 }
 
 .px-3 {
