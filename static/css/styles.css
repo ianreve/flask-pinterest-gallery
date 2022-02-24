@@ -714,6 +714,10 @@ input[type="file"] {
   background-color: rgb(135 146 174 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -801,6 +805,11 @@ input[type="file"] {
 .text-sky-500 {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .backdrop-blur-xl {
@@ -1342,6 +1351,11 @@ div.show-image a.delete {
   border-radius: 100%;
 }
 
+.delete-img {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+
 .placeholder\:text-\[\#18293C\]::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(24 41 60 / var(--tw-text-opacity));
@@ -1416,6 +1430,11 @@ div.show-image a.delete {
 .dark .dark\:text-\[\#69FFDB\] {
   --tw-text-opacity: 1;
   color: rgb(105 255 219 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .dark .dark\:placeholder\:text-white::-moz-placeholder {

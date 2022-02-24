@@ -332,3 +332,8 @@ div.show-image a.delete {
 
   border-radius: 100%;
 }
+
+.delete-img {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
